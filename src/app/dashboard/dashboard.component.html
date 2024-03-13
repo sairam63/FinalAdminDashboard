@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="position-sticky pt-3">
+                <ul class="nav flex-column">
+                    <br>
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                            routerLink="/nav/bookingmanagment" routerLinkActive="active">
+                            <h6 style="font-family:Verdana, Geneva, Tahoma, sans-serif;">Services Requests</h6>
+                            <hr>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                            routerLink="/nav/services" routerLinkActive="active">
+                            <h6 style="font-family:Verdana, Geneva, Tahoma, sans-serif;">Services</h6>
+                            <hr>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="shopping-cart"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="users"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="bar-chart-2"></span> </a>
+                    </li>
+                    <br><br><br><br><br><br><br><br><br>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                    <li class="nav-item-logout"><a class="nav-link active" aria-current="page"
+                            routerLink="/Dashboard/login" routerLinkActive="active">
+                            <h6  style="font-family:Verdana, Geneva, Tahoma, sans-serif;">Logout </h6>
+                        </a>
+                        <!-- <img src="../../assets/log2.jpg" alt=""> -->
+                    </li>
+                    <span data-feather="layers"></span>
+                    </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <router-outlet></router-outlet>

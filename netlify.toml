@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"  # Replace with your frontend build command
+  publish = "frontend/build"  # Replace with the path to your build output directory
+
+
+[[redirects]]
+  from = "/api/*"
+  to = "http://localhost:5000/"
+  status = 200
+  force = true

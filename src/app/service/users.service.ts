@@ -11,10 +11,8 @@ import {environment} from '../../environment/environment'
 export class Usersservice {
   constructor(private http: HttpClient) { }
   getusers() {
-    return this.http.get(`${environment}/getBookedServicesData`)
+    return this.http.get(`https://admin-backend-3.onrender.com/getBookedServicesData`)
   }
-
-
 }
 
 

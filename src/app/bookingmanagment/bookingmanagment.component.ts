@@ -18,9 +18,12 @@ export class BookingmanagmentComponent implements OnInit {
       (data: any) => {
         // Check if data is not empty and is an array
         if (Array.isArray(data) && data.length > 0) {
-          // Sort the users array based on the 'Name' property
-          this.users = data.sort((a, b) => a.Date.localeCompare(b.Date));
-          
+          // Filter out items with missing or undefined Date property
+          const filteredData = data.filter(item => item.Date);
+
+          // Sort the users array based on the 'Date' property
+          this.users = filteredData.sort((a, b) => a.Date.localeCompare(b.Date));
+
         }
       },
       error => {

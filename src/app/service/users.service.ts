@@ -11,7 +11,7 @@ import {environment} from '../../environment/environment'
 export class Usersservice {
   constructor(private http: HttpClient) { }
   getusers() {
-    return this.http.get(`${environment}/api/getbookservices`)
+    return this.http.get(`${environment}/getBookedServicesData`)
   }
 
 

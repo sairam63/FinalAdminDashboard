@@ -15,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users | filter: searchText">
+      <tr *ngFor="let user of sortedData | filter: searchText">
         <td class="aa">{{ user.date }}</td>
         <td class="bb">{{user.name }}</td>
         <td>{{user.phoneNumber}}</td>

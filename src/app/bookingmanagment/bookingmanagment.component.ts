@@ -10,6 +10,7 @@ import { Usersservice } from '../service/users.service';
 export class BookingmanagmentComponent implements OnInit {
   searchText: string = '';
   users: any[] = [];
+  sortedData: any[]=[];
 
   constructor(private usersservice: Usersservice) { }
 
@@ -18,26 +19,41 @@ export class BookingmanagmentComponent implements OnInit {
       (data: any) => {
         console.log('Received data from the API:', data); // Log the received data
 
-        // Sort the data by date and time in descending order
-        this.users = data.sort((a: any, b: any) => {
-          // console.log('a.date:', a.date);
-          // console.log('b.date:', b.date);
-          // Ensure both a.Date and b.Date are defined
-          if (!a.date || !b.date) {
-            return 0;
-          }
-          // Extract timestamps from date strings and compare
-          const timestampA = new Date(a.date).getTime();
-          const timestampB = new Date(b.date).getTime();
-          // Compare timestamps
-          return timestampB - timestampA;
+        // Log dates before sorting
+        console.log('Dates before sorting:', data.map((item: any) => {
+          // Check if item.date is a Date object before calling toLocaleDateString()
+          return (item.date instanceof Date) ? item.date.toLocaleDateString() : item.date;
+        }));
+  
+        // Reverse the order of the elements in the 'data' array
+        data.reverse();
+  
+        
+  
+        // Sort by date in descending order
+        data.sort((a: any, b: any) => {
+          const dateA = new Date(a.date).getTime(); // Convert to timestamp
+          const dateB = new Date(b.date).getTime(); // Convert to timestamp
+          return dateB - dateA; // Compare timestamps
         });
+
+        // Assign the sorted data to the 'sortedData' property
+        this.sortedData = data;
+  
+        // Log dates after sorting
+        console.log('Dates after sorting:', data.map((item: any) => {
+          // Check if item.date is a Date object before calling toLocaleDateString()
+          return (item.date instanceof Date) ? item.date.toLocaleDateString() : item.date;
+        }));
+  
+        console.log('Sorted data in reverse order:', data); // Log the sorted data in reverse order
       },
       error => {
         console.error('Error fetching users:', error);
       }
     );
   }
+
 
 
 

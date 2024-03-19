@@ -16,21 +16,55 @@ export class BookingmanagmentComponent implements OnInit {
   ngOnInit(): void {
     this.usersservice.getusers().subscribe(
       (data: any) => {
-        // Check if data is not empty and is an array
-        if (Array.isArray(data) && data.length > 0) {
-          // Filter out items with missing or undefined Date property
-          const filteredData = data.filter(item => item.Date);
+        console.log('Received data from the API:', data); // Log the received data
 
-          // Sort the users array based on the 'Date' property
-          this.users = filteredData.sort((a, b) => a.Date.localeCompare(b.Date));
-
-        }
+        // Sort the data by date and time in descending order
+        this.users = data.sort((a: any, b: any) => {
+          // console.log('a.date:', a.date);
+          // console.log('b.date:', b.date);
+          // Ensure both a.Date and b.Date are defined
+          if (!a.date || !b.date) {
+            return 0;
+          }
+          // Extract timestamps from date strings and compare
+          const timestampA = new Date(a.date).getTime();
+          const timestampB = new Date(b.date).getTime();
+          // Compare timestamps
+          return timestampB - timestampA;
+        });
       },
       error => {
         console.error('Error fetching users:', error);
       }
     );
   }
+
+
+
+  // parseCustomDate(dateString: string): Date {
+  //   // Check if dateString is undefined or empty
+  //   if (!dateString || dateString.trim() === '') {
+  //     console.error('Date string is undefined or empty');
+  //     return new Date(); // Provide a default date if dateString is undefined or empty
+  //   }
+  //
+  //   // Parsing logic for valid date strings
+  //   const parts = dateString.split(', ');
+  //   if (parts.length !== 2) {
+  //     console.error('Invalid date format:', dateString);
+  //     return new Date(0); // Return a default date if the format is invalid
+  //   }
+  //
+  //   const [datePart, timePart] = parts;
+  //   const [date, month, year] = datePart.split('/');
+  //   const [time, ampm] = timePart.split(' ');
+  //   const [hours, minutes, seconds] = time.split(':');
+  //   const hours24 = (ampm === 'PM' ? parseInt(hours) + 12 : parseInt(hours));
+  //
+  //   return new Date(`${year}-${month}-${date}T${hours24}:${minutes}:${seconds}`);
+  // }
+
+
 
   onSearch() {
     console.log('Search term:', this.searchText);

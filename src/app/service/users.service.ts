@@ -1,6 +1,8 @@
 // frontend/src/app/data/data.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { tap, catchError } from 'rxjs/operators';
+
 import { Observable } from 'rxjs';
 import {environment} from '../../environment/environment'
 
@@ -11,7 +13,15 @@ import {environment} from '../../environment/environment'
 export class Usersservice {
   constructor(private http: HttpClient) { }
   getusers() {
+    console.log('Sending request to fetch users...');
     return this.http.get(`https://admin-backend-3.onrender.com/getBookedServicesData`)
+      .pipe(
+        tap(data => console.log('Received data from the API:', data)),
+        catchError(error => {
+          console.error('Error fetching users:', error);
+          throw error; // Re-throw the error to propagate it further
+        })
+      );
   }
 }
 

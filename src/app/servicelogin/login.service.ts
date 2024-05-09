@@ -14,7 +14,7 @@ export class LoginService  {
   }
 
   constructor(private http:HttpClient) { }
-  getlogin(){
+  getLogin(){
     return this.http.get(`${environment.apiUrl}/api/login`);
   }
 }

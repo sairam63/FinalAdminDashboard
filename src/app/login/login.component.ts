@@ -12,45 +12,45 @@ import { Observable } from 'rxjs';
 })
 export class LoginComponent implements OnInit {
 
-  
+
 
     users: any[] = []; // Assuming your user data structure
     loginError: boolean = false;
-  
+
     constructor(
       private fb: FormBuilder,
       private loginService: LoginService, // Adjust service name
       private router: Router
     ) { }
-  
+
     loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
-  
+
     get emailControl() {
       return this.loginForm.get('email');
     }
-  
+
     get passwordControl() {
       return this.loginForm.get('password');
     }
-  
+
     ngOnInit(): void {
-      this.loginService.getlogin().subscribe(
+      this.loginService.getLogin().subscribe(
         (data: any) => {
           this.users = data;
         }
       );
     }
-  
+
     onLoginClick() {
       if (this.loginForm.valid) {
         const enteredEmail = this.emailControl?.value;
         const enteredPassword = this.passwordControl?.value;
-  
+
         const user = this.users.find(u => u.email === enteredEmail && u.password === enteredPassword);
-  
+
         if (user) {
           this.handleSuccessfulLogin();
         } else {
@@ -58,11 +58,11 @@ export class LoginComponent implements OnInit {
         }
       }
     }
-  
+
     private handleSuccessfulLogin() {
       this.router.navigate(['/nav/bookingmanagment']);
     }
-  
+
     private handleFailedLogin() {
       this.loginError = true;
     }

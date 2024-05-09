@@ -16,6 +16,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { FilterPipe } from './filter.pipe';
+import {DateFormatPipe} from "./pipes/date-format.pipe";
 
 @NgModule({
   declarations: [
@@ -29,11 +30,7 @@ import { FilterPipe } from './filter.pipe';
     LoginComponent,
     RegisterComponent,
     FilterPipe,
-    
-
-
-
-
+    DateFormatPipe,
   ],
   imports: [
     HttpClientModule,

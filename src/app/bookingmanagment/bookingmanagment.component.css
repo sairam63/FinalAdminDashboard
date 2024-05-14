@@ -37,7 +37,7 @@ tr:hover {
 /* thead {
   border-bottom: 2px solid black; /* Adjust the color and thickness of the line as needed */
 /* } */
-/* 
+/*
 tr:nth-child(even) {
   background-color: #161515;
 } */
@@ -89,3 +89,6 @@ table td:nth-child(6) {
 table td {
   text-align: center;
 }
+
+
+

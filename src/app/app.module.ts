@@ -17,6 +17,8 @@ import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { FilterPipe } from './filter.pipe';
 import {DateFormatPipe} from "./pipes/date-format.pipe";
+import { UserComponent } from './Users/user/user.component';
+import { AddUserComponent } from './Users/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import {DateFormatPipe} from "./pipes/date-format.pipe";
     RegisterComponent,
     FilterPipe,
     DateFormatPipe,
+    UserComponent,
+    AddUserComponent,
   ],
   imports: [
     HttpClientModule,

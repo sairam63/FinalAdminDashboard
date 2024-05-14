@@ -34,6 +34,7 @@ body {
     position: fixed;
     background-color: #111;
     padding-top: 60px;
+    z-index: 999;
     /* Adjusted to accommodate the fixed navbar */
     /* color: white; */
 }
@@ -132,4 +133,33 @@ hr {
         width: 80%; /* Final width */
         background-color: #ffff; /* Final color */
     }
+}
+
+/* Style for the submenu */
+.submenu {
+  display: none; /* Initially hide the submenu */
+  margin-left: 20px; /* Adjust the left margin as needed */
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 4px; /* Add border radius */
+  background-color: #fff; /* Set background color */
+  position: absolute; /* Position the submenu */
+  z-index: 1; /* Ensure submenu appears above other content */
+  padding: 8px 0; /* Add padding to submenu */
+}
+
+/* Style for submenu items */
+.submenu li {
+  padding: 8px 16px; /* Adjust padding as needed */
+}
+
+/* Style for submenu item links */
+.submenu li a {
+  color: #fff; /* Set link color */
+  text-decoration: none; /* Remove underline */
+  display: block; /* Display as block element */
+}
+
+/* Hover effect for submenu items */
+.submenu li:hover {
+  background-color: #f4f4f4; /* Change background color on hover */
 }

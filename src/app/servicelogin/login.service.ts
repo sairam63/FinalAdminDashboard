@@ -1,20 +1,35 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import {environment} from "../../environment/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService  {
-  getUsers() {
-    throw new Error('Method not implemented.');
-  }
-  getUserByEmail(email: string | null | undefined) {
-    throw new Error('Method not implemented.');
+  private baseUrl = 'http://localhost:2000'; // Update this with your backend URL
+
+  constructor(private http: HttpClient) {
   }
 
-  constructor(private http:HttpClient) { }
-  getLogin(){
-    return this.http.get(`${environment.apiUrl}/api/login`);
+  login(email: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/api/login`, {email, password})
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  private handleError(error: any) {
+    let errorMessage = 'An error occurred';
+    if (error.error instanceof ErrorEvent) {
+      // Client-side error
+      errorMessage = error.error.message;
+    } else {
+      // Server-side error
+      errorMessage = error.error.error || error.statusText;
+    }
+    console.error(errorMessage);
+    return throwError(errorMessage);
   }
 }

@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
+  showSubOptions: { [key: string]: boolean } = {
+    servicesRequests: false,
+    users: false,
+    reports: false
+    // Add more main options here if needed
+  };
+
+  toggleSubOptions(option: string) {
+    this.showSubOptions[option] = !this.showSubOptions[option];
+  }
 
 }

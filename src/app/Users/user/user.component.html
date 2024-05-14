@@ -1,0 +1,56 @@
+<app-dashboard></app-dashboard>
+<table class="user-list">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Type of User</th>
+    <th>Mobile No.</th>
+    <th>Email ID</th>
+    <th>Password</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of user">
+    <td>{{ user.Name }}</td>
+    <td>{{user.Usertype}}</td>
+    <td>{{ user.MobileNumber }}</td>
+    <td>{{ user.EmailAddress }}</td>
+    <td>
+
+      <button (click)="editUser(user)">
+        <i class="fas fa-edit"></i> <!-- Font Awesome edit icon -->
+      </button>
+      <button (click)="deleteUser(user)">
+        <i class="fas fa-trash-alt"></i> <!-- Font Awesome delete icon -->
+      </button>
+    </td>
+
+  </tr>
+  </tbody>
+</table>
+
+
+<!--&lt;!&ndash; Edit form &ndash;&gt;-->
+<!--<div class="edit" *ngIf="editingUser">-->
+<!--  <label for="name">Name:</label>-->
+<!--  <input id="name" type="text" [(ngModel)]="editingUser.Name" placeholder="Name">-->
+
+<!--  <div>-->
+<!--    <label for="mobile">Mobile Number:</label>-->
+<!--    <input id="mobile" type="text" [(ngModel)]="editingUser.MobileNumber" placeholder="Mobile Number">-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <label for="email">Email Address:</label>-->
+<!--    <input id="email" type="email" [(ngModel)]="editingUser.EmailAddress" placeholder="Email Address">-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <button (click)="updateUser(); closeForm()">Update</button>-->
+<!--    <button (click)="closeForm()">Close</button>-->
+<!--  </div>-->
+<!--  <div *ngIf="updateMessage">{{ updateMessage }}</div>-->
+<!--</div>-->
+
+<!-- Button to add a new user -->
+<button class="add-user-button" routerLink="/nav/user/add-user">Add User</button>
+<p>yea here is the button </p>

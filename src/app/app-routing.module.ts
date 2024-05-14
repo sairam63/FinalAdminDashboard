@@ -8,6 +8,8 @@ import { ServicesComponent } from './services/services.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './guards/auth.guard';
+import { UserComponent} from "./Users/user/user.component";
+import { AddUserComponent} from "./Users/add-user/add-user.component";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -19,7 +21,9 @@ const routes: Routes = [
       { path: 'bookingmanagment', component: BookingmanagmentComponent },
       { path: 'services', component: ServicesComponent },
       { path: 'home', component: HomeComponent },
-      {path: 'Dashboard/login', component: LoginComponent}
+      {path: 'Dashboard/login', component: LoginComponent},
+      {path: 'user', component: UserComponent},
+      {path: 'add-user', component: AddUserComponent}
     ]
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },

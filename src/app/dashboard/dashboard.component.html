@@ -1,56 +1,72 @@
 <div class="container-fluid">
-    <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-            <div class="position-sticky pt-3">
-                <ul class="nav flex-column">
-                    <br>
-                        <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
-                            routerLink="/nav/bookingmanagment" routerLinkActive="active">
-                            <h6 style="font-family:Verdana, Geneva, Tahoma, sans-serif;">Services Requests</h6>
-                            <hr>
-                        </a>
-                    </li>
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item" (click)="toggleSubOptions('servicesRequestsSubOptions')">
+            <a class="nav-link active" aria-current="page" routerLink="/nav/bookingmanagment" routerLinkActive="active">
+              <h6 style="font-family:Verdana, Geneva, Tahoma, sans-serif;">Services Requests</h6>
+              <hr>
+            </a>
+            <!-- Sub-options for Services Requests -->
+            <ul class="nav flex-column pl-3" id="servicesRequestsSubOptions" style="display: none;">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Sub-option 1</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Sub-option 2</a>
+              </li>
+              <!-- Add more sub-options here if needed -->
+            </ul>
+          </li>
+          <li class="nav-item" (click)="toggleSubOptions('usersSubOptions')">
+            <a class="nav-link active" aria-current="page" routerLink="/nav/user" routerLinkActive="active">
+              <h6 style="font-family:Verdana, Geneva, Tahoma, sans-serif;">Users</h6>
+              <hr>
+            </a>
+            <!-- Sub-options for Users -->
+            <ul class="nav flex-column pl-3" id="usersSubOptions" style="display: none;">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Add User</a>
+              </li>
+              <!-- Add more sub-options here if needed -->
+            </ul>
+          </li>
+          <li class="nav-item" (click)="toggleSubOptions('reportsSubOptions')">
+            <a class="nav-link active" aria-current="page" routerLink="/nav/bookingmanagment" routerLinkActive="active">
+              <h6 style="font-family:Verdana, Geneva, Tahoma, sans-serif;">Reports</h6>
+              <hr>
+            </a>
+            <!-- Sub-options for Reports -->
+            <ul class="nav flex-column pl-3" id="reportsSubOptions" style="display: none;">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Sub-option 1</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Sub-option 2</a>
+              </li>
+              <!-- Add more sub-options here if needed -->
+            </ul>
+          </li>
+          <!-- Add other main options here -->
 
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link active" aria-current="page"-->
-<!--                            routerLink="/nav/services" routerLinkActive="active">-->
-<!--                            <h6 style="font-family:Verdana, Geneva, Tahoma, sans-serif;">Services</h6>-->
-<!--                            <hr>-->
-<!--                        </a>-->
-<!--                    </li>-->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="file"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="shopping-cart"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="users"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="bar-chart-2"></span> </a>
-                    </li>
-                    <br><br><br><br><br><br><br><br><br>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                    <li class="nav-item-logout"><a class="nav-link active" aria-current="page"
-                            routerLink="/Dashboard/login" routerLinkActive="active">
-                            <h6  style="font-family:Verdana, Geneva, Tahoma, sans-serif;">Logout </h6>
-                        </a>
-                        <!-- <img src="../../assets/log2.jpg" alt=""> -->
-                    </li>
-                    <span data-feather="layers"></span>
-                    </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <router-outlet></router-outlet>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file"></span>
+            </a>
+          </li>
+          <!-- Add other items here -->
+          <br><br><br><br><br><br><br><br><br>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <h6 style="font-family:Verdana, Geneva, Tahoma, sans-serif;">Logout </h6>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+

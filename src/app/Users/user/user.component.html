@@ -1,4 +1,5 @@
 <app-dashboard></app-dashboard>
+<div class="main-content">
 <table class="user-list">
   <thead>
   <tr>
@@ -10,12 +11,14 @@
     <th>Actions</th>
   </tr>
   </thead>
+
   <tbody>
-  <tr *ngFor="let user of user">
+  <tr *ngFor="let user of users">
     <td>{{ user.Name }}</td>
     <td>{{user.Usertype}}</td>
     <td>{{ user.MobileNumber }}</td>
     <td>{{ user.EmailAddress }}</td>
+    <td>{{user.Password}}</td>
     <td>
 
       <button (click)="editUser(user)">
@@ -30,27 +33,43 @@
   </tbody>
 </table>
 
+<!-- Add User button -->
+<button class="add-user-button" routerLink="/nav/add-user">Add User</button>
 
-<!--&lt;!&ndash; Edit form &ndash;&gt;-->
-<!--<div class="edit" *ngIf="editingUser">-->
-<!--  <label for="name">Name:</label>-->
-<!--  <input id="name" type="text" [(ngModel)]="editingUser.Name" placeholder="Name">-->
 
-<!--  <div>-->
-<!--    <label for="mobile">Mobile Number:</label>-->
-<!--    <input id="mobile" type="text" [(ngModel)]="editingUser.MobileNumber" placeholder="Mobile Number">-->
-<!--  </div>-->
-<!--  <div>-->
-<!--    <label for="email">Email Address:</label>-->
-<!--    <input id="email" type="email" [(ngModel)]="editingUser.EmailAddress" placeholder="Email Address">-->
-<!--  </div>-->
-<!--  <div>-->
-<!--    <button (click)="updateUser(); closeForm()">Update</button>-->
-<!--    <button (click)="closeForm()">Close</button>-->
-<!--  </div>-->
-<!--  <div *ngIf="updateMessage">{{ updateMessage }}</div>-->
-<!--</div>-->
 
-<!-- Button to add a new user -->
-<button class="add-user-button" routerLink="/nav/user/add-user">Add User</button>
-<p>yea here is the button </p>
+
+<!-- Edit form -->
+<div class="edit" *ngIf="editingUser">
+  <label for="name">Name:</label>
+  <input id="name" type="text" [(ngModel)]="editingUser.Name" placeholder="Name">
+
+  <div>
+    <label for="userType">Type of User:</label>
+    <input id="userType" type="text" [(ngModel)]="editingUser.Usertype" placeholder="Type of User">
+  </div>
+
+  <div>
+    <label for="mobile">Mobile Number:</label>
+    <input id="mobile" type="text" [(ngModel)]="editingUser.MobileNumber" placeholder="Mobile Number">
+  </div>
+  <div>
+    <label for="email">Email Address:</label>
+    <input id="email" type="email" [(ngModel)]="editingUser.EmailAddress" placeholder="Email Address">
+  </div>
+
+  <div>
+    <label for="password">Password:</label>
+    <input id="password" type="password" [(ngModel)]="editingUser.Password" placeholder="Password">
+  </div>
+
+  <div>
+    <button (click)="updateUser(); closeForm()">Update</button>
+    <button (click)="closeForm()">Close</button>
+  </div>
+  <div *ngIf="updateMessage">{{ updateMessage }}</div>
+</div>
+
+
+</div>
+

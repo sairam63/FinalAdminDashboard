@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdduserService {
-  private apiUrl ='http:2000/api/adduser';
+  private apiUrl ='http://localhost:2000/api/users';
     constructor(private http: HttpClient) { }
 
   addUser(userData:any): Observable<any> {

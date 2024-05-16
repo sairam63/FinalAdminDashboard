@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 import { UserComponent} from "./Users/user/user.component";
 import { AddUserComponent} from "./Users/add-user/add-user.component";
+import { AddSrComponent} from "./SR/add-sr/add-sr.component";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -23,7 +24,8 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       {path: 'Dashboard/login', component: LoginComponent},
       {path: 'user', component: UserComponent},
-      {path: 'add-user', component: AddUserComponent}
+      {path: 'add-user', component: AddUserComponent},
+      {path: 'add-sr', component: AddSrComponent}
     ]
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },

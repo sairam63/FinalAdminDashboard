@@ -137,7 +137,7 @@ hr {
 
 /* Style for the submenu */
 .submenu {
-  display: none; /* Initially hide the submenu */
+  display: block; /* Initially hide the submenu */
   margin-left: 20px; /* Adjust the left margin as needed */
   border: 1px solid #ccc; /* Add a border */
   border-radius: 4px; /* Add border radius */

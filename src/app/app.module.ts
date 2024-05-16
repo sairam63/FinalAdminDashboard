@@ -19,6 +19,7 @@ import { FilterPipe } from './filter.pipe';
 import {DateFormatPipe} from "./pipes/date-format.pipe";
 import { UserComponent } from './Users/user/user.component';
 import { AddUserComponent } from './Users/add-user/add-user.component';
+import { AddSrComponent } from './SR/add-sr/add-sr.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { AddUserComponent } from './Users/add-user/add-user.component';
     DateFormatPipe,
     UserComponent,
     AddUserComponent,
+    AddSrComponent,
   ],
   imports: [
     HttpClientModule,

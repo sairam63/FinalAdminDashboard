@@ -3,23 +3,23 @@
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
-          <li class="nav-item" (click)="toggleSubOptions('servicesRequestsSubOptions')">
+          <li class="nav-item" (click)="toggleSubOptions('servicesRequests')">
             <a class="nav-link active" aria-current="page" routerLink="/nav/bookingmanagment" routerLinkActive="active">
               <h6 style="font-family:Verdana, Geneva, Tahoma, sans-serif;">Services Requests</h6>
               <hr>
             </a>
             <!-- Sub-options for Services Requests -->
-            <ul class="nav flex-column pl-3" id="servicesRequestsSubOptions" style="display: none;">
+            <ul class="nav flex-column pl-3" id="servicesRequestsSubOptions" *ngIf="showSubOptions['servicesRequests']">
               <li class="nav-item">
-                <a class="nav-link" href="#">Sub-option 1</a>
+                <a class="nav-link" routerLink="/nav/add-sr">Add Service Requests</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Sub-option 2</a>
+                <a class="nav-link" href="#">Edit Service Requests</a>
               </li>
               <!-- Add more sub-options here if needed -->
             </ul>
           </li>
-          <li class="nav-item" (click)="toggleSubOptions('usersSubOptions')">
+          <li class="nav-item" (click)="toggleSubOptions('users')">
             <a class="nav-link active" aria-current="page" routerLink="/nav/user" routerLinkActive="active">
               <h6 style="font-family:Verdana, Geneva, Tahoma, sans-serif;">Users</h6>
               <hr>
@@ -32,13 +32,13 @@
               <!-- Add more sub-options here if needed -->
             </ul>
           </li>
-          <li class="nav-item" (click)="toggleSubOptions('reportsSubOptions')">
+          <li class="nav-item" (click)="toggleSubOptions('reports')">
             <a class="nav-link active" aria-current="page" routerLink="/nav/bookingmanagment" routerLinkActive="active">
               <h6 style="font-family:Verdana, Geneva, Tahoma, sans-serif;">Reports</h6>
               <hr>
             </a>
             <!-- Sub-options for Reports -->
-            <ul class="nav flex-column pl-3" id="reportsSubOptions" style="display: none;">
+            <ul class="nav flex-column pl-3" id="reportsSubOptions"  *ngIf="showSubOptions['reports']">
               <li class="nav-item">
                 <a class="nav-link" href="#">Sub-option 1</a>
               </li>

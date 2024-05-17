@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
+import { AddSrService} from "../services/add-sr.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-sr',
@@ -8,27 +9,29 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add-sr.component.css']
 })
 export class AddSrComponent {
-  serviceBookingForm: FormGroup; // Rename registrationForm to serviceBookingForm
-
+  formData: any = {};
   showSuccessMessage: boolean = false;
 
-  constructor(private formBuilder: FormBuilder) {
-    this.serviceBookingForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.pattern('[a-zA-Z]+')]],
-      mobile: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
-      email: ['', [Validators.required, Validators.email]],
-      userType: ['', Validators.required],
-      other: ['', Validators.required]
-    });
+
+
+  constructor(private fb: FormBuilder, private addSrService: AddSrService, private router: Router) {}
+
+  onSubmit(form: NgForm) {
+    this.addSrService.addService(this.formData)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.showSuccessMessage = true;
+          form.resetForm();
+          setTimeout(() => {
+            this.showSuccessMessage = false; // hide success message after 3 seconds
+            this.router.navigate(['/nav/bookingmanagment']); // navigate back to user page
+          }, 3000); // hide success message after 3 seconds
+        },
+        error => console.error(error)
+      );
   }
 
-  onSubmit() {
-    if (this.serviceBookingForm.valid) {
-      // Perform data submission to the database
-      // Reset the form
-      this.serviceBookingForm.reset();
-      // Display success message
-      this.showSuccessMessage = true;
-    }
-  }
+
+
 }

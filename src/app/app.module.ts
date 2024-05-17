@@ -21,6 +21,7 @@ import { UserComponent } from './Users/user/user.component';
 import { AddUserComponent } from './Users/add-user/add-user.component';
 import { AddSrComponent } from './SR/add-sr/add-sr.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { AddSrComponent } from './SR/add-sr/add-sr.component';
     UserComponent,
     AddUserComponent,
     AddSrComponent,
+
   ],
   imports: [
     HttpClientModule,

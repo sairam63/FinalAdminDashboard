@@ -96,6 +96,14 @@ button:hover {
   border-radius: 3px;
 }
 
+.edit select{
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
 .edit button {
   background-color: #007bff;
   color: #fff;

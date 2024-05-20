@@ -34,7 +34,7 @@
 </table>
 
 <!-- Add User button -->
-<button class="add-user-button" routerLink="/nav/add-user">Add User</button>
+<!--<button class="add-user-button" routerLink="/nav/add-user">Add User</button>-->
 
 
 
@@ -46,7 +46,11 @@
 
   <div>
     <label for="userType">Type of User:</label>
-    <input id="userType" type="text" [(ngModel)]="editingUser.Usertype" placeholder="Type of User">
+    <select id="userType" [(ngModel)]="editingUser.Usertype">
+      <option value="" disabled selected>Select Type</option>
+      <option value="Admin">Admin</option>
+      <option value="User">User</option>
+    </select>
   </div>
 
   <div>

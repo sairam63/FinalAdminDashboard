@@ -2,8 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap, catchError } from 'rxjs/operators';
-
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import {environment} from '../../environment/environment'
 
 
@@ -11,6 +10,7 @@ import {environment} from '../../environment/environment'
   providedIn: 'root',
 })
 export class Usersservice {
+  private apiUrl= 'http://localhost:2000/getBookedServicesData'
   constructor(private http: HttpClient) { }
   getusers() {
     console.log('Sending request to fetch users...');
@@ -22,6 +22,27 @@ export class Usersservice {
           throw error; // Re-throw the error to propagate it further
         })
       );
+  }
+
+  deleteService(_id: string): Observable<any> {
+    const url = `${this.apiUrl}/${_id}`;
+    return this.http.delete<any>(url).pipe(
+      catchError((error) => {
+        console.error('Error deleting user:', error);
+        return throwError(error);
+      })
+    );
+  }
+
+  updateService(editingService: any): Observable<any> {
+    const url = `${this.apiUrl}/${editingService._id}`;
+    return this.http.put<any>(url, editingService).pipe(
+      tap((updatedService) => console.log('Updated service:', updatedService)),
+      catchError((error) => {
+        console.error('Error updating service:', error);
+        throw error;
+      })
+    );
   }
 }
 

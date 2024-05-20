@@ -13,9 +13,6 @@
               <li class="nav-item">
                 <a class="nav-link" routerLink="/nav/add-sr">Add Service Requests</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Edit Service Requests</a>
-              </li>
               <!-- Add more sub-options here if needed -->
             </ul>
           </li>
@@ -24,12 +21,11 @@
               <h6 style="font-family:Verdana, Geneva, Tahoma, sans-serif;">Users</h6>
               <hr>
             </a>
-            <!-- Sub-options for Users -->
-            <ul class="nav flex-column pl-3" id="usersSubOptions" style="display: none;">
+            <!-- Sub-options for user -->
+            <ul class="nav flex-column pl-3" id="usersSubOptions" *ngIf="showSubOptions['users']">
               <li class="nav-item">
-                <a class="nav-link" href="#">Add User</a>
+                <a class="nav-link" routerLink="/nav/add-user">Add Users</a>
               </li>
-              <!-- Add more sub-options here if needed -->
             </ul>
           </li>
           <li class="nav-item" (click)="toggleSubOptions('reports')">

@@ -11,6 +11,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { UserComponent} from "./Users/user/user.component";
 import { AddUserComponent} from "./Users/add-user/add-user.component";
 import { AddSrComponent} from "./SR/add-sr/add-sr.component";
+import { ReportComponent} from "./Reports/report/report.component";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -25,7 +26,8 @@ const routes: Routes = [
       {path: 'Dashboard/login', component: LoginComponent},
       {path: 'user', component: UserComponent},
       {path: 'add-user', component: AddUserComponent},
-      {path: 'add-sr', component: AddSrComponent}
+      {path: 'add-sr', component: AddSrComponent},
+      {path: 'report', component:ReportComponent}
     ]
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },

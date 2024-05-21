@@ -29,17 +29,17 @@
             </ul>
           </li>
           <li class="nav-item" (click)="toggleSubOptions('reports')">
-            <a class="nav-link active" aria-current="page" routerLink="/nav/bookingmanagment" routerLinkActive="active">
+            <a class="nav-link active" aria-current="page" routerLink="/nav/report" routerLinkActive="active">
               <h6 style="font-family:Verdana, Geneva, Tahoma, sans-serif;">Reports</h6>
               <hr>
             </a>
             <!-- Sub-options for Reports -->
             <ul class="nav flex-column pl-3" id="reportsSubOptions"  *ngIf="showSubOptions['reports']">
               <li class="nav-item">
-                <a class="nav-link" href="#">Sub-option 1</a>
+                <a class="nav-link" [routerLink]="['/nav/report']" [queryParams]="{ filter: '7days' }">All SR for 7 days</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Sub-option 2</a>
+                <a class="nav-link" [routerLink]="['/nav/report']" [queryParams]="{ filter: '30days' }">>All SR for 30 days</a>
               </li>
               <!-- Add more sub-options here if needed -->
             </ul>

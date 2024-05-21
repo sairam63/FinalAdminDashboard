@@ -20,6 +20,7 @@ import {DateFormatPipe} from "./pipes/date-format.pipe";
 import { UserComponent } from './Users/user/user.component';
 import { AddUserComponent } from './Users/add-user/add-user.component';
 import { AddSrComponent } from './SR/add-sr/add-sr.component';
+import { ReportComponent } from './Reports/report/report.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { AddSrComponent } from './SR/add-sr/add-sr.component';
     UserComponent,
     AddUserComponent,
     AddSrComponent,
+    ReportComponent,
 
   ],
   imports: [

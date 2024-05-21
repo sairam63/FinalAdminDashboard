@@ -49,12 +49,13 @@ export class UserComponent implements OnInit{
   }
 
   deleteUser(user: any) {
+    if (confirm('Are you sure you want to delete this user?')) {
     // Delete the user using the UserService
     this.userService.deleteUser(user._id).subscribe(() => {
       // Remove the user from the UI after successful deletion
       this.users = this.users.filter(u => u._id !== user._id);
     });
-  }
+  }}
 
   closeForm() {
     // Reset the editingUser to null to close the edit form

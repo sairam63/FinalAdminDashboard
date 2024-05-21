@@ -79,10 +79,16 @@ export class BookingmanagmentComponent implements OnInit {
 
 
   deleteService(user: any):void {
-    const index = this.services.findIndex((s: { id: any; }) => s.id === this.service.id);
-    if (index !== -1) {
-      this.services.splice(index, 1);
-      this.updateMessage = "Service deleted successfully";
+    if (confirm('Are you sure you want to delete this service request?')) {
+      this.usersservice.deleteService(user._id).subscribe(
+        () => {
+          this.users = this.users.filter((u) => u._id !== user._id);
+          this.sortedData = this.users;
+        },
+        (error) => {
+          console.error('Error deleting user:', error);
+        }
+      );
     }
   }
 

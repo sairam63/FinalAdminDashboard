@@ -13,6 +13,7 @@ export class BookingmanagmentComponent implements OnInit {
   sortedData: any[]=[];
   editingService: any= null;
   updateMessage: string = '';
+  editFormPosition = { top: 0, left: 0 };
 
   private services: any;
   private service: any;
@@ -71,8 +72,12 @@ export class BookingmanagmentComponent implements OnInit {
     console.log('Search term:', this.searchText);
   }
 
-  editService(user: any):void {
+  editService(user: any, event: MouseEvent):void {
     this.editingService = {...user};
+    const targetElement = event.currentTarget as HTMLElement;
+    const rect = targetElement.getBoundingClientRect();
+    this.editFormPosition.top = rect.top + window.scrollY;
+    this.editFormPosition.left = rect.left + window.scrollX;
     console.log('Editing service:', this.editingService);
   }
 

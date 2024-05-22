@@ -21,7 +21,7 @@
     <td>{{user.Password}}</td>
     <td>
 
-      <button (click)="editUser(user)">
+      <button (click)="editUser(user, $event)">
         <i class="fas fa-edit"></i> <!-- Font Awesome edit icon -->
       </button>
       <button (click)="deleteUser(user)">
@@ -40,7 +40,7 @@
 
 
 <!-- Edit form -->
-<div class="edit" *ngIf="editingUser">
+<div class="edit" *ngIf="editingUser" [ngStyle]="{'top.px': editFormPosition.top, 'left.px': editFormPosition.left, 'position': 'absolute'}">
   <label for="name">Name:</label>
   <input id="name" type="text" [(ngModel)]="editingUser.Name" placeholder="Name">
 

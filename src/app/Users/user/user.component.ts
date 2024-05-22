@@ -9,6 +9,7 @@ import { UserService} from "../../caretakers/user.service";
 export class UserComponent implements OnInit{
   users: any[] = [];
   editingUser: any= null;
+  editFormPosition = { top: 0, left: 0 };
   updateMessage: string = '';
 
   constructor(private userService: UserService) { }
@@ -29,9 +30,13 @@ export class UserComponent implements OnInit{
       );
   }
 
-  editUser(user: any) {
+  editUser(user: any,  event: MouseEvent) {
     // Implement edit functionality
     this.editingUser = { ...user };
+    const targetElement = event.currentTarget as HTMLElement;
+    const rect = targetElement.getBoundingClientRect();
+    this.editFormPosition.top = rect.top + window.scrollY;
+    this.editFormPosition.left = rect.left + window.scrollX;
   }
 
   updateUser() {

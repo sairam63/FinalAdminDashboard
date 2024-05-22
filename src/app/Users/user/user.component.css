@@ -67,17 +67,14 @@ button:hover {
 }
 
 .edit {
-  position: absolute;
-  top: calc(20% + 20px); /* Adjust based on the height of your navbar */
-  left: calc(98% - 200px); /* Adjust the spacing from the right side */
-  transform: translate(-50%, 0); /* Translate to the left */
-  background-color: #f9f9f9;
-  padding: 20px;
+  background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 400px; /* Adjust the width of the form */
+  padding: 20px;
+  width: 360px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 1; /* Ensure the form appears above other elements */
+  z-index: 1000; /* Ensure the form appears above other content */
+  transform: translate(-10%, 0);
 }
 
 

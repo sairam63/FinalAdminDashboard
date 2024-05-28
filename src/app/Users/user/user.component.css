@@ -114,6 +114,17 @@ button:hover {
   background-color: #0056b3;
 }
 
+.password-container {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-password {
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+
 .add-user-button {
   background-color: #007bff; /* Blue background color */
   color: #fff; /* White text color */

@@ -7,7 +7,7 @@
     <th>Type of User</th>
     <th>Mobile No.</th>
     <th>Email ID</th>
-    <th>Password</th>
+<!--    <th>Password</th>-->
     <th>Actions</th>
   </tr>
   </thead>
@@ -18,7 +18,7 @@
     <td>{{user.Usertype}}</td>
     <td>{{ user.MobileNumber }}</td>
     <td>{{ user.EmailAddress }}</td>
-    <td>{{user.Password}}</td>
+<!--    <td>{{user.Password}}</td>-->
     <td>
 
       <button (click)="editUser(user, $event)">
@@ -64,7 +64,11 @@
 
   <div>
     <label for="password">Password:</label>
-    <input id="password" type="password" [(ngModel)]="editingUser.Password" placeholder="Password">
+    <div class="password-container">
+      <input id="password" [type]="passwordFieldType" [(ngModel)]="editingUser.Password" placeholder="Password">
+      <i class="fas" [ngClass]="passwordFieldType === 'password' ? 'fa-eye' : 'fa-eye-slash'" (click)="togglePasswordVisibility()" style="cursor: pointer; margin-left: 5px;">
+      </i>
+    </div>
   </div>
 
   <div>

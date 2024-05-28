@@ -11,6 +11,7 @@ export class UserComponent implements OnInit{
   editingUser: any= null;
   editFormPosition = { top: 0, left: 0 };
   updateMessage: string = '';
+  passwordFieldType: string = 'password';
 
   constructor(private userService: UserService) { }
 
@@ -65,5 +66,9 @@ export class UserComponent implements OnInit{
   closeForm() {
     // Reset the editingUser to null to close the edit form
     this.editingUser = null;
+  }
+
+  togglePasswordVisibility() {
+    this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
   }
 }

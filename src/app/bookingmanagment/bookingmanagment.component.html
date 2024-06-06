@@ -1,10 +1,12 @@
 <app-dashboard></app-dashboard>
 <div>
+  <div>
+    <h2>Service Requests</h2>
+    <input type="text" [(ngModel)]="searchText" placeholder="Search..." class="small-search-bar">
+  </div>
+
   <table>
     <thead>
-      <div>
-        <input type="text" [(ngModel)]="searchText" placeholder="Search..." class="small-search-bar">
-      </div>
       <tr>
         <th class="dd">ServiceRequest Date</th>
         <th class="dd">Service Request By</th>

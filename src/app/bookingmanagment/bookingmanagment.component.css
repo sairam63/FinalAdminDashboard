@@ -1,8 +1,35 @@
+h2 {
+  margin-top: 80px;
+  margin-right:650px;
+  margin-bottom: 0px; /* Adjust this value as needed */
+  text-align: center;  /* Center align the header */
+}
+
+.small-search-bar {
+  margin-top: -20px;
+  margin-left:760px;
+  padding: 8px;
+  font-size: 12px;
+  width: 250px;
+  /* Set the width of the search bar */
+  height: 30px;
+  font-size: 14px;
+  /* background-color: rgb(236, 241, 245); */
+  color: rgb(14, 13, 13);
+  border-radius: 10px;
+  position: relative;
+  left: 290px;
+  bottom: 20px;
+  border: 2px solid rgb(154, 213, 235);
+
+}
+
 table {
   width: 70%;
   border-collapse: collapse;
   margin: 100px;
   margin-left: 300px;
+  margin-top:10px;
 }
 
 th,
@@ -56,29 +83,7 @@ tr {
 
 
 /* app.component.css */
-.small-search-bar {
-  padding: 8px;
-  font-size: 12px;
 
-
-  /* Adjust the font size as needed */
-
-
-
-  width: 250px;
-  /* Set the width of the search bar */
-  height: 30px;
-
-  font-size: 14px;
-  /* background-color: rgb(236, 241, 245); */
-  color: rgb(14, 13, 13);
-  border-radius: 10px;
-  position: relative;
-  left: 290px;
-  bottom: 20px;
-  border: 2px solid rgb(154, 213, 235);
-
-}
 
 table td:nth-child(6) {
   padding: 0px 50px;

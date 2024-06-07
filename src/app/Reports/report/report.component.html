@@ -1,10 +1,12 @@
 <app-dashboard></app-dashboard>
 <div>
-  <table>
-    <thead>
-    <div>
+  <div class="main-content">
+    <div class="header-container">
+      <h2>Reports</h2>
       <input type="text" [(ngModel)]="searchText" placeholder="Search..." class="small-search-bar">
     </div>
+  <table class="record-list">
+    <thead>
     <tr>
       <th class="dd">ServiceRequest Date</th>
       <th class="dd">Service Request By</th>
@@ -25,4 +27,5 @@
     </tr>
     </tbody>
   </table>
+</div>
 </div>

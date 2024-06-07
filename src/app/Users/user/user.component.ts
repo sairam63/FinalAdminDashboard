@@ -12,6 +12,7 @@ export class UserComponent implements OnInit{
   editFormPosition = { top: 0, left: 0 };
   updateMessage: string = '';
   passwordFieldType: string = 'password';
+  searchText: string = '';
 
   constructor(private userService: UserService) { }
 

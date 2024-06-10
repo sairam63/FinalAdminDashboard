@@ -10,11 +10,12 @@ import {environment} from '../../environment/environment'
   providedIn: 'root',
 })
 export class Usersservice {
-  private apiUrl= 'http://localhost:2000/getBookedServicesData'
+  private apiUrl= 'http://localhost:2000'
   constructor(private http: HttpClient) { }
   getusers() {
     console.log('Sending request to fetch users...');
-    return this.http.get(`https://admin-backend-3.onrender.com/getBookedServicesData`)
+    // return this.http.get(`https://admin-backend-3.onrender.com/getBookedServicesData`)
+    return this.http.get(`${this.apiUrl}/getBookedServicesData`)
       .pipe(
         tap(data => console.log('Received data from the API:', data)),
         catchError(error => {
@@ -25,7 +26,7 @@ export class Usersservice {
   }
 
   deleteService(_id: string): Observable<any> {
-    const url = `${this.apiUrl}/${_id}`;
+    const url = `${this.apiUrl}/getBookedServicesData/${_id}`;
     return this.http.delete<any>(url).pipe(
       catchError((error) => {
         console.error('Error deleting user:', error);
@@ -35,7 +36,7 @@ export class Usersservice {
   }
 
   updateService(editingService: any): Observable<any> {
-    const url = `${this.apiUrl}/${editingService._id}`;
+    const url = `${this.apiUrl}/getBookedServicesData/${editingService._id}`;
     return this.http.put<any>(url, editingService).pipe(
       tap((updatedService) => console.log('Updated service:', updatedService)),
       catchError((error) => {
@@ -45,54 +46,3 @@ export class Usersservice {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-// private backendUrl = 'http://localhost:5000/api/data';
-
-// constructor(private http: HttpClient) { }
-
-// getData(): Observable<any> {
-//   return this.http.get<any>('/api/data');
-// }
-// }
-
-
-
-
-// // data.service.ts
-// import { Injectable } from '@angular/core';
-// import { HttpClient } from '@angular/common/http';
-// import { Observable } from 'rxjs';
-// import { catchError, tap } from 'rxjs/operators';
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class DataService {
-//   private apiUrl = 'http://localhost:5000/api/data';
-
-//   constructor(private http: HttpClient) { }
-
-//   getData(): Observable<any[]> {
-//     console.log('Fetching data from:', `${this.apiUrl}/api/data`);
-//     return this.http.get<any[]>(`${this.apiUrl}/api/data`)
-//       .pipe(
-//         tap(data => console.log('Data received:', data)),
-//         catchError(error => {
-//           console.error('Error fetching data:', error);
-//           throw error;
-//         })
-//       );
-//   }
-// }

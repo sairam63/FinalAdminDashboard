@@ -126,8 +126,4 @@ export class BookingmanagmentComponent implements OnInit {
     this.updateMessage = '';
     console.log('Form closed');
   }
-
-
 }
-
-

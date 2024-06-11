@@ -98,4 +98,14 @@ export class ReportComponent {
       return dateB - dateA;
     });
   }
+
+  getHeader() {
+    if (this.filter === '7days') {
+      return 'Service Requests for Last 7 Days';
+    } else if (this.filter === '30days') {
+      return 'Service Requests for Last 30 Days';
+    } else {
+      return 'All Service Requests';
+    }
+  }
 }

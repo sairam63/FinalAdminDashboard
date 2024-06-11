@@ -17,7 +17,7 @@
   </thead>
 
   <tbody>
-  <tr *ngFor="let user of users">
+  <tr *ngFor="let user of users | filter:searchText">
     <td>{{ user.Name }}</td>
     <td>{{user.Usertype}}</td>
     <td>{{ user.MobileNumber }}</td>
